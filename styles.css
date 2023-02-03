@@ -48,6 +48,7 @@ html, body {
 body {
   background-color: var(--background);
   background-size: 100% 100%;
+  background-attachment: fixed;
   color: var(--text-primary);
 }
 body.light {
@@ -106,12 +107,14 @@ button img {
 
 
 section.cont {
-  display: flex;
-  padding: 1em;
-  height: calc(100% - 2em);
+  min-height: calc(100% - 2em);
   max-width: 1360px;
+  padding: 1em;
+  margin: 0px auto;
+  display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 
