@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;600;900&display=swap');
+
+/* THEME */
+
+:root {
+  --font-base: 'Jost', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --primary-main: #c9d2ea;
+  --primary-light: #d8e0f3;
+  --primary-dark: #b9c2df;
+  --primary-gradient: linear-gradient( 90deg, var(--primary-light) 0%, var(--primary-dark) 100% );
+  --text-contrast-primary: #53576f;
+  --secondary-main: #686c85;
+  --secondary-light: #6d7191;
+  --secondary-dark: #616578;
+  --secondary-gradient: linear-gradient( 90deg, var(--secondary-light) 0%, var(--secondary-dark) 100% );
+  --text-contrast-secondary: #ffffff;
+}
+
+:root .light {
+  --text-primary: #53576f;
+  --text-secondary: #6d7191;
+  --background: #adb5ca;
+  --paper: #b0bad1;
+}
+
+:root .dark {
+  --text-primary: #ffffff;
+  --text-secondary: #d7dcf0;
+  --background: #3b4053;
+  --paper: #3e4357;
+}
+
+
+/* RESET */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+*:not(pre) {
+  font-family: var(--font-base);
+}
+html, body {
+  width: 100%;
+  font-size: 12pt;
+  height: 100%;
+}
+
+body {
+  background-color: var(--background);
+  background-size: 100% 100%;
+  color: var(--text-primary);
+}
+body.light {
+  background-image: url('images/BgLight.png');
+}
+body.dark {
+  background-image: url('images/BgDark.png');
+}
+
+
+/* button */
+a {
+  text-decoration: none;
+}
+button {
+  position: relative;
+  align-items: center;
+  border: none;
+  padding: 0.5em 1em;
+  font-weight: 600;
+  font-size: 1em;
+  background: transparent;
+  cursor: pointer;
+}
+button::before {
+  content: '';
+  display: block;
+  transform: skewX(-20deg);
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 1pt 4pt #00000080;
+  z-index: -1;
+}
+button.primary {
+  color: var(--text-contrast-primary);
+}
+button.secondary {
+  color: var(--text-contrast-secondary);
+}
+button.primary::before {
+  background-image: var(--primary-gradient);
+}
+button.secondary::before {
+  background-image: var(--secondary-gradient);
+}
+button:first-child {
+  z-index: 1;
+}
+button img {
+  height: 2em;
+  max-width: 2.5em;
+}
+
+
+section.cont {
+  display: flex;
+  padding: 1em;
+  height: calc(100% - 2em);
+  max-width: 1360px;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Cover */
+#cover {
+  width: 33%;
+  min-width: 20em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#cover img {
+  max-width: 25em;
+  width: 100%;
+}
+#cover h1 {
+  font-size: 4em;
+}
+
+
+/* links */
+
+#links {
+  width: fit-content;
+  margin: 1em 10% 1em 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.link, .link button {
+  display: flex;
+}
+.link {
+  width: fit-content;
+  align-items: stretch;
+}
+.link button.primary {
+  width: 4em;
+  justify-content: center;
+}

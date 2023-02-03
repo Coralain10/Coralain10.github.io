@@ -1,0 +1,57 @@
+<html>
+<head>
+  <base href="./"/>
+  <title>Coralain</title>
+  <meta charset="utf-8"/>
+  <meta name="theme-color" content="#c9d2ea"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="manifest" href="./manifest.webmanifest"/>
+  <link rel="StyleSheet" HREF="styles.css" TYPE="text/css" MEDIA="screen"/>
+  <link rel="icon" href="./images/favicon.svg" sizes="any" type="image/svg+xml"/>
+  <meta name="description" content="Gameplay & AI programmer, front-end web developer, UI designer, character & lighting artist"/>
+</head>
+<body class="light">
+  
+  <header></header>
+
+  <main>
+
+    <section class="cont">
+      <div id="cover">
+        <img src="images/cover_img.svg"/>
+        <h1>Coralain</h1>
+      </div>
+      </div>
+      <div id="links">
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const linksFolder = "./images/logos/"
+    const links = [
+      { media: 'Github', user: 'Coralain10', image: linksFolder+'Github.svg', href: 'https://github.com/Coralain10' },
+      { media: 'Itchio', user: 'Coralain', image: linksFolder+'Itchio.svg', href: 'https://coralain.itch.io/' },
+      { media: 'Global Game Jam', user: 'Coralain', image: linksFolder+'GGJ.svg', href: 'https://globalgamejam.org/users/coralain' },
+      { media: 'DeviantArt', user: 'Coralain10', image: linksFolder+'DeviantArt.svg', href: 'https://www.deviantart.com/coralain10' },
+      { media: 'Facebook', user: 'CoralainArt', image: linksFolder+'Facebook.svg', href: 'https://www.facebook.com/coralainart' },
+      { media: 'Instagram', user: 'CoralainArt', image: linksFolder+'Instagram.svg', href: 'https://www.instagram.com/coralainart' },
+      { media: 'Twitter', user: 'CoralainArt', image: linksFolder+'Twitter.svg', href: 'https://twitter.com/CoralainArt' },
+    ]
+    linkBtn = ( media, user, image, href )=>{
+      return "<a target='_blank' href='"+ href +"' class='link' title='"+ media +"'' >" +
+        "<button class='primary'> <img src='"+image+"'/> </button>"+
+        "<button class='secondary'>"+user+"</button>"+
+      "</a>"
+    }
+
+    let innerLinks = "";
+    links.forEach(link => {
+      innerLinks += linkBtn(link.media, link.user, link.image, link.href)
+    });
+    document.getElementById("links").innerHTML = innerLinks;
+    
+  </script>
+</body>
+</html>

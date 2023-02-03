@@ -1,0 +1,18 @@
+{
+  "name": "Coralain",
+  "short_name": "Coralain",
+  "description": "Gameplay & AI programmer, front-end web developer, UI designer, character & lighting artist.",
+  "lang": "en-US",
+  "theme_color": "#c9d2ea",
+  "background_color": "#adb5ca",
+  "display": "fullscreen",
+  "scope": "./",
+  "start_url": "./",
+  "icons": [
+    {
+      "src": "/images/favicon.svg",
+      "sizes": "48x48 72x72 96x96 128x128 256x256 512x512",
+      "purpose": "maskable any"
+    }
+  ]
+}
