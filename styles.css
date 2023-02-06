@@ -18,7 +18,7 @@
 
 :root .light {
   --text-primary: #53576f;
-  --text-secondary: #6d7191;
+  --text-secondary: #23273d;
   --background: #adb5ca;
   --paper: #b0bad1;
 }
@@ -134,6 +134,18 @@ section.cont {
 }
 #cover h1 {
   font-size: 4em;
+}
+
+#ocupations span {
+  padding: 0.25em 0.5em;
+  margin: 0.125em;
+  border-radius: 2em;
+  background: var(--paper);
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.25em;
+  cursor: default;
 }
 
 
