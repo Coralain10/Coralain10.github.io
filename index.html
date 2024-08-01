@@ -65,13 +65,13 @@
       { media: 'Instagram', user: 'CoralainArt', image: linksFolder+'Instagram.svg', href: 'https://www.instagram.com/coralainart' },
       { media: 'X (Twitter)', user: 'CoralainArt', image: linksFolder+'Twitter.svg', href: 'https://twitter.com/CoralainArt' },
     ]
-    linkBtn = ( media, user, image, href )=>{
+    const linkBtn = ( media, user, image, href )=>{
       return "<a target='_blank' href='"+ href +"' class='link' title='"+ media +"'' >" +
         "<button class='primary'> <img src='"+image+"'/> </button>"+
         "<button class='secondary'>"+user+"</button>"+
       "</a>"
     }
-    commonLinkBtn = ( media, user, image, href )=>{
+    const commonLinkBtn = ( media, user, image, href )=>{
       return "<a target='_blank' href='"+ href +"' class='link' title='"+ media +"/"+ user +" '' >" +
         "<button class='primary'> <img src='"+image+"'/> </button>"+
       "</a>"
@@ -91,18 +91,25 @@
     
 
     //Light and Dark mode
-    const lightness_mode = localStorage.getItem("lightness-mode");
-    document.body.className = lightness_mode == null ? "light" : lightness_mode;
-    
-    changeMode = () =>{
-      const changeToDark = document.body.className == "light";
-      const mode = changeToDark ? "dark" : "light";
+    /**
+    * @param {"dark"|"light"} mode
+    */
+    const updateLightnessMode = (mode) => {
       document.body.className = mode;
+      const changeToDark = mode == "dark";
       document.getElementById("switch-mode").className = changeToDark ? "secondary" : "primary";
       document.getElementById("light-mode").hidden = !changeToDark;
       document.getElementById("dark-mode").hidden = changeToDark;
       localStorage.setItem("lightness-mode", mode);
     }
+    const changeMode = () =>{
+      const changeToDark = document.body.className == "light";
+      const mode = changeToDark ? "dark" : "light";
+      updateLightnessMode(mode);
+    }
+    const lightness_mode = localStorage.getItem("lightness-mode");
+    updateLightnessMode(lightness_mode == null ? "light" : lightness_mode);
+
   </script>
 </body>
 </html>
