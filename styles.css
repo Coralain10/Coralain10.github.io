@@ -13,7 +13,7 @@
   --secondary-light: #6d7191;
   --secondary-dark: #616578;
   --secondary-gradient: linear-gradient( 90deg, var(--secondary-light) 0%, var(--secondary-dark) 100% );
-  --text-contrast-secondary: #ffffff;
+  --text-contrast-secondary: #ebecf1;
 }
 
 :root .light {
@@ -24,7 +24,7 @@
 }
 
 :root .dark {
-  --text-primary: #ffffff;
+  --text-primary: #e1e3ed;
   --text-secondary: #d7dcf0;
   --background: #3b4053;
   --paper: #3e4357;
@@ -58,6 +58,18 @@ body.dark {
   background-image: url('images/BgDark.png');
 }
 
+*[hidden] {
+  display: none !important;
+}
+
+::-moz-selection {
+  color: var(--background);
+  background: var(--text-primary);
+}
+::selection {
+  color: var(--background);
+  background: var(--text-primary);
+}
 
 /* button */
 a {
@@ -106,7 +118,9 @@ button img {
 }
 
 
+/* Section cont */
 section.cont {
+  position: relative;
   min-height: calc(100% - 2em);
   max-width: 1360px;
   padding: 1em;
@@ -115,6 +129,21 @@ section.cont {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+
+/* switch-mode */
+#switch-mode {
+  position: absolute;
+  top: 0px;
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.25em;
+  font-size: small;
+  opacity: 0.75;
+}
+#switch-mode::before {
+  opacity: 0.5;
 }
 
 
@@ -150,13 +179,26 @@ section.cont {
 
 
 /* links */
-
 #links {
-  width: fit-content;
   margin: 1em 10% 1em 2em;
+  position: relative;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 1.5em;
+}
+
+.links {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 0.5em;
+}
+
+.links#common-links {
+  flex-direction: row;
 }
 
 .link, .link button {

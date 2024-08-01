@@ -18,13 +18,19 @@
   <main>
 
     <section class="cont">
+      <button id="switch-mode" type="button" class='primary' onclick="changeMode()">
+        <i class="material-icons" id="light-mode" hidden>light_mode</i>
+        <i class="material-icons" id="dark-mode">dark_mode</i>
+      </button>
       <div id="cover">
         <img src="images/cover_img.svg"/>
         <h1>Coralain</h1>
         <p id="ocupations"></p>
       </div>
+      <div id="links">
+        <div id="main-links" class="links"></div>
+        <div id="common-links" class="links"></div>
       </div>
-      <div id="links"></div>
     </section>
 
   </main>
@@ -47,11 +53,14 @@
 
     const linksFolder = "./images/logos/"
     const links = [
-      { media: 'Linkedin', user: 'Carolain Anto', image: linksFolder+'Linkedin.svg', href: 'https://www.linkedin.com/in/carolainanto/' },
-      // { media: 'Github', user: 'Coralain10', image: linksFolder+'Github.svg', href: 'https://github.com/Coralain10' },
+      // { media: 'Linkedin', user: 'Carolain Anto', image: linksFolder+'Linkedin.svg', href: 'https://www.linkedin.com/in/carolainanto/' },
+      { media: 'Github', user: 'Coralain10', image: linksFolder+'Github.svg', href: 'https://github.com/Coralain10' },
       { media: 'Itchio', user: 'Coralain', image: linksFolder+'Itchio.svg', href: 'https://coralain.itch.io/' },
       { media: 'Global Game Jam', user: 'Coralain', image: linksFolder+'GGJ.svg', href: 'https://globalgamejam.org/users/coralain' },
+      { media: 'Behance', user: 'Coralain', image: linksFolder+'Behance.svg', href: 'https://www.behance.net/coralain' },
       { media: 'DeviantArt', user: 'Coralain10', image: linksFolder+'DeviantArt.svg', href: 'https://www.deviantart.com/coralain10' },
+    ]
+    const commonLinks = [
       { media: 'Facebook', user: 'CoralainArt', image: linksFolder+'Facebook.svg', href: 'https://www.facebook.com/coralainart' },
       { media: 'Instagram', user: 'CoralainArt', image: linksFolder+'Instagram.svg', href: 'https://www.instagram.com/coralainart' },
       { media: 'X (Twitter)', user: 'CoralainArt', image: linksFolder+'Twitter.svg', href: 'https://twitter.com/CoralainArt' },
@@ -62,13 +71,38 @@
         "<button class='secondary'>"+user+"</button>"+
       "</a>"
     }
+    commonLinkBtn = ( media, user, image, href )=>{
+      return "<a target='_blank' href='"+ href +"' class='link' title='"+ media +"/"+ user +" '' >" +
+        "<button class='primary'> <img src='"+image+"'/> </button>"+
+      "</a>"
+    }
 
     let innerLinks = "";
     links.forEach(link => {
       innerLinks += linkBtn(link.media, link.user, link.image, link.href)
     });
-    document.getElementById("links").innerHTML = innerLinks;
+    document.getElementById("main-links").innerHTML = innerLinks;
     
+    innerLinks = "";
+    commonLinks.forEach(link => {
+      innerLinks += commonLinkBtn(link.media, link.user, link.image, link.href)
+    });
+    document.getElementById("common-links").innerHTML = innerLinks;
+    
+
+    //Light and Dark mode
+    const lightness_mode = localStorage.getItem("lightness-mode");
+    document.body.className = lightness_mode == null ? "light" : lightness_mode;
+    
+    changeMode = () =>{
+      const changeToDark = document.body.className == "light";
+      const mode = changeToDark ? "dark" : "light";
+      document.body.className = mode;
+      document.getElementById("switch-mode").className = changeToDark ? "secondary" : "primary";
+      document.getElementById("light-mode").hidden = !changeToDark;
+      document.getElementById("dark-mode").hidden = changeToDark;
+      localStorage.setItem("lightness-mode", mode);
+    }
   </script>
 </body>
 </html>
